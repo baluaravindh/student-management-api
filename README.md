@@ -1,22 +1,25 @@
 # Student Management API
 
-Backend REST API built using Spring Boot.
+Spring Boot REST API for managing students.
 
 ## Tech Stack
-- Java 17
-- Spring Boot
-- Spring Data JPA
-- MySQL
-- Maven
-- Git
+Java 17
+Spring Boot
+Spring Data JPA
+MySQL
+Maven
+Git
 
-## APIs
+## Features
+Create student
+Get all students
+Get student by id
+DTO pattern
+Validation
+Logging
 
-Create Student
+## API Endpoints
+
 POST /students
-
-Get All Students
 GET /students
-
-Get Student By Id
 GET /students/{id}
