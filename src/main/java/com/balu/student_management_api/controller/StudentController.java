@@ -1,8 +1,11 @@
 package com.balu.student_management_api.controller;
 
+import com.balu.student_management_api.dto.StudentRequestDto;
+import com.balu.student_management_api.dto.StudentResponseDto;
 import com.balu.student_management_api.entity.Student;
 import com.balu.student_management_api.repository.StudentRepository;
 import com.balu.student_management_api.service.StudentService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,17 +19,17 @@ public class StudentController {
     private final StudentService studentService;
 
     @PostMapping
-    public Student createStudent(@RequestBody Student student) {
-        return studentService.createStudent(student);
+    public StudentResponseDto createStudent(@Valid @RequestBody StudentRequestDto request) {
+        return studentService.createStudent(request);
     }
 
     @GetMapping
-    public List<Student> getAllStudents() {
+    public List<StudentResponseDto> getAllStudents() {
         return studentService.getStudents();
     }
 
     @GetMapping("/{id}")
-    public Student getStudentByID(@PathVariable long id){
+    public StudentResponseDto getStudentByID(@PathVariable long id){
         return studentService.getStudentById(id);
     }
 }
